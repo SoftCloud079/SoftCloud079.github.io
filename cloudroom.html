@@ -43,8 +43,6 @@ justify-content:center;
 
 
 
-
-
 body::before{
 
 content:"";
@@ -73,8 +71,6 @@ z-index:0;
 
 
 
-
-
 /* Logo */
 
 .logo{
@@ -85,17 +81,18 @@ top:35px;
 
 left:35px;
 
-width:90px;
+width:75px;
+
+height:75px;
 
 object-fit:contain;
-
-filter:
-
-drop-shadow(0 0 25px rgba(155,89,182,.7));
 
 animation:logoFloat 5s infinite ease-in-out;
 
 z-index:5;
+
+filter:
+drop-shadow(0 0 25px rgba(155,89,182,.6));
 
 }
 
@@ -110,8 +107,6 @@ transform:translateY(-12px);
 }
 
 }
-
-
 
 
 
@@ -134,6 +129,7 @@ opacity:.5;
 animation:twinkle 5s infinite;
 
 }
+
 
 
 @keyframes twinkle{
@@ -229,6 +225,7 @@ left:-200px;
 }
 
 
+
 .cloud.two{
 
 bottom:15%;
@@ -260,8 +257,7 @@ transform:translateX(350px);
 
 
 
-
-/* Main */
+/* Room */
 
 .room{
 
@@ -271,11 +267,11 @@ z-index:2;
 
 width:100%;
 
-max-width:1000px;
-
-padding:40px;
+max-width:900px;
 
 text-align:center;
+
+padding:40px;
 
 }
 
@@ -287,7 +283,7 @@ font-size:60px;
 
 letter-spacing:7px;
 
-margin:20px 0;
+margin-bottom:30px;
 
 text-shadow:
 
@@ -299,11 +295,11 @@ text-shadow:
 
 p{
 
+font-size:20px;
+
 line-height:1.8;
 
 opacity:.75;
-
-font-size:20px;
 
 }
 
@@ -353,8 +349,6 @@ box-shadow:
 
 
 
-
-
 .small{
 
 font-size:12px;
@@ -369,7 +363,54 @@ margin-top:25px;
 
 
 
-/* Credit */
+/* Screens */
+
+.screen{
+
+position:absolute;
+
+width:100%;
+
+left:0;
+
+top:50%;
+
+transform:translateY(-50%);
+
+transition:
+
+opacity 2.8s ease,
+
+transform 2.8s ease;
+
+}
+
+
+
+.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+
+
+.hide{
+
+opacity:0;
+
+pointer-events:none;
+
+transform:translateY(calc(-50% + 50px));
+
+}
+
+
+
+
+/* Music credit */
 
 .music-credit{
 
@@ -404,54 +445,6 @@ opacity:.35;
 
 
 
-
-/* Fade */
-
-.screen{
-
-position:absolute;
-
-width:100%;
-
-left:0;
-
-top:50%;
-
-transform:translateY(-50%);
-
-transition:
-
-opacity 2.8s ease,
-
-transform 2.8s ease;
-
-}
-
-
-
-.show{
-
-opacity:1;
-
-pointer-events:auto;
-
-transform:translateY(-50%);
-
-}
-
-
-
-.hide{
-
-opacity:0;
-
-pointer-events:none;
-
-transform:translateY(calc(-50% + 50px));
-
-}
-
-
 </style>
 
 </head>
@@ -461,7 +454,7 @@ transform:translateY(calc(-50% + 50px));
 <body>
 
 
-<img src="logo.png" class="logo">
+<img src="favicon.png" class="logo">
 
 
 
@@ -483,6 +476,7 @@ transform:translateY(calc(-50% + 50px));
 <div class="room">
 
 
+
 <div id="welcome" class="screen show">
 
 
@@ -502,11 +496,13 @@ Take a moment to relax and breathe.
 </p>
 
 
+
 <div class="button" onclick="enterRoom()">
 
 Let me in
 
 </div>
+
 
 
 <div class="small">
@@ -539,6 +535,7 @@ Relax and stay for as long as you need.
 </p>
 
 
+
 <div id="muteButton" class="button" onclick="muteMusic()">
 
 Mute music
@@ -554,6 +551,7 @@ Mute music
 Return to SoftCloud
 
 </div>
+
 
 
 </div>
@@ -574,11 +572,13 @@ Cloud Room soundtrack<br>
 
 
 
+
 <audio id="music" loop>
 
 <source src="nightlight.mp3" type="audio/mp3">
 
 </audio>
+
 
 
 
@@ -630,6 +630,7 @@ music.play();
 
 
 
+
 function muteMusic(){
 
 
@@ -669,6 +670,7 @@ window.location.href="index.html";
 
 
 </script>
+
 
 
 </body>

@@ -68,10 +68,9 @@ z-index:-1;
 
 /* Logo */
 
+  .logo{
 
-.logo{
-
-position:absolute;
+position:fixed;
 
 top:35px;
 
@@ -83,7 +82,20 @@ height:90px;
 
 object-fit:contain;
 
+cursor:pointer;
+
 animation:logoGlow 4s infinite ease-in-out;
+
+z-index:5;
+
+transition:.3s;
+
+}
+
+
+.logo:hover{
+
+transform:scale(1.08);
 
 }
 
@@ -107,12 +119,6 @@ drop-shadow(0 0 35px rgba(155,89,182,.8));
 }
 
 }
-
-
-
-
-
-
 
 /* Main layout */
 
@@ -591,7 +597,7 @@ padding:25px;
 <body>
 
 
-<img src="logo.png" class="logo">
+<img src="logo.png" class="logo" id="cloudButton">
 
 
 <div class="container">
@@ -871,12 +877,6 @@ Join Discord
 </div>
 
 
-
-
-
-
-
-
 <div class="section">
 
 <h2>Contact</h2>
@@ -996,6 +996,51 @@ document
 }
 
 
+let logoClicks = 0;
+
+let clickTimer;
+
+
+document.getElementById("cloudButton").addEventListener("click",()=>{
+
+
+logoClicks++;
+
+
+clearTimeout(clickTimer);
+
+
+
+clickTimer=setTimeout(()=>{
+
+logoClicks=0;
+
+},1500);
+
+
+
+if(logoClicks === 3){
+
+
+document.body.style.transition="opacity 1s ease";
+
+document.body.style.opacity="0";
+
+
+
+setTimeout(()=>{
+
+
+window.location.href="cloudroom.html";
+
+
+},1000);
+
+
+}
+
+
+});
 
 </script>
 

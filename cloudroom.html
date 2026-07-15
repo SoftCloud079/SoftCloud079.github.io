@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cloud Room</title>
+
+<link rel="icon" href="favicon.png">
+
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+
+height:100vh;
+
+overflow:hidden;
+
+font-family:Arial,sans-serif;
+
+background:
+radial-gradient(circle at top,#160b2e,#0b0616 70%);
+
+color:#f3ecff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+
+height:350px;
+
+top:-200px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:
+
+rgba(155,89,182,.18);
+
+filter:blur(120px);
+
+z-index:0;
+
+}
+
+
+
+
+
+/* Logo */
+
+.logo{
+
+position:fixed;
+
+top:35px;
+
+left:35px;
+
+width:90px;
+
+object-fit:contain;
+
+filter:
+
+drop-shadow(0 0 25px rgba(155,89,182,.7));
+
+animation:logoFloat 5s infinite ease-in-out;
+
+z-index:5;
+
+}
+
+
+
+@keyframes logoFloat{
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+
+
+
+
+/* Stars */
+
+.star{
+
+position:absolute;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+opacity:.5;
+
+animation:twinkle 5s infinite;
+
+}
+
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.15;
+
+}
+
+}
+
+
+
+
+
+/* Clouds */
+
+.cloud{
+
+position:absolute;
+
+width:330px;
+
+height:100px;
+
+background:
+
+rgba(190,160,255,.12);
+
+border-radius:100px;
+
+animation:floatCloud 45s infinite alternate;
+
+}
+
+
+
+.cloud:before{
+
+content:"";
+
+position:absolute;
+
+width:140px;
+
+height:140px;
+
+background:
+
+rgba(190,160,255,.12);
+
+border-radius:50%;
+
+top:-60px;
+
+left:60px;
+
+}
+
+
+
+.cloud:after{
+
+content:"";
+
+position:absolute;
+
+width:100px;
+
+height:100px;
+
+background:
+
+rgba(190,160,255,.12);
+
+border-radius:50%;
+
+top:-40px;
+
+right:50px;
+
+}
+
+
+
+.cloud.one{
+
+top:15%;
+
+left:-200px;
+
+}
+
+
+.cloud.two{
+
+bottom:15%;
+
+right:-200px;
+
+animation-delay:10s;
+
+}
+
+
+
+@keyframes floatCloud{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(350px);
+
+}
+
+}
+
+
+
+
+
+/* Main */
+
+.room{
+
+position:relative;
+
+z-index:2;
+
+width:100%;
+
+max-width:1000px;
+
+padding:40px;
+
+text-align:center;
+
+}
+
+
+
+h1{
+
+font-size:60px;
+
+letter-spacing:7px;
+
+margin:20px 0;
+
+text-shadow:
+
+0 0 35px rgba(155,89,182,.35);
+
+}
+
+
+
+p{
+
+line-height:1.8;
+
+opacity:.75;
+
+font-size:20px;
+
+}
+
+
+
+
+
+/* Buttons */
+
+.button{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:12px 35px;
+
+border-radius:30px;
+
+background:
+
+rgba(155,89,182,.25);
+
+border:
+
+1px solid rgba(155,89,182,.4);
+
+color:white;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+
+
+.button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 10px 30px rgba(155,89,182,.25);
+
+}
+
+
+
+
+
+.small{
+
+font-size:12px;
+
+opacity:.45;
+
+margin-top:25px;
+
+}
+
+
+
+
+
+/* Credit */
+
+.music-credit{
+
+position:fixed;
+
+bottom:25px;
+
+left:35px;
+
+font-size:12px;
+
+letter-spacing:1px;
+
+opacity:0;
+
+line-height:1.6;
+
+transition:2.8s ease;
+
+z-index:5;
+
+}
+
+
+
+.show-credit{
+
+opacity:.35;
+
+}
+
+
+
+
+
+/* Fade */
+
+.screen{
+
+position:absolute;
+
+width:100%;
+
+left:0;
+
+top:50%;
+
+transform:translateY(-50%);
+
+transition:
+
+opacity 2.8s ease,
+
+transform 2.8s ease;
+
+}
+
+
+
+.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+transform:translateY(-50%);
+
+}
+
+
+
+.hide{
+
+opacity:0;
+
+pointer-events:none;
+
+transform:translateY(calc(-50% + 50px));
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<img src="logo.png" class="logo">
+
+
+
+<div class="star" style="top:15%;left:20%"></div>
+<div class="star" style="top:25%;left:80%"></div>
+<div class="star" style="top:70%;left:15%"></div>
+<div class="star" style="top:80%;left:75%"></div>
+<div class="star" style="top:40%;left:60%"></div>
+
+
+
+<div class="cloud one"></div>
+
+<div class="cloud two"></div>
+
+
+
+
+<div class="room">
+
+
+<div id="welcome" class="screen show">
+
+
+<h1>
+Cloud Room
+</h1>
+
+
+<p>
+The world can be a little hard sometimes.
+</p>
+
+
+<p>
+A quiet place above the noise.<br>
+Take a moment to relax and breathe.
+</p>
+
+
+<div class="button" onclick="enterRoom()">
+
+Let me in
+
+</div>
+
+
+<div class="small">
+
+Music will play<br>
+You can mute it anytime
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div id="inside" class="screen hide">
+
+
+<h1>
+Welcome
+</h1>
+
+
+<p>
+Welcome to the Cloud Room.<br>
+Relax and stay for as long as you need.
+</p>
+
+
+<div id="muteButton" class="button" onclick="muteMusic()">
+
+Mute music
+
+</div>
+
+
+<br>
+
+
+<div class="button" onclick="leaveRoom()">
+
+Return to SoftCloud
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div id="musicCredit" class="music-credit">
+
+Cloud Room soundtrack<br>
+"Night Light" — Purrple Cat
+
+</div>
+
+
+
+
+<audio id="music" loop>
+
+<source src="nightlight.mp3" type="audio/mp3">
+
+</audio>
+
+
+
+
+<script>
+
+
+function enterRoom(){
+
+
+let welcome=document.getElementById("welcome");
+
+let inside=document.getElementById("inside");
+
+let credit=document.getElementById("musicCredit");
+
+
+
+welcome.classList.remove("show");
+
+welcome.classList.add("hide");
+
+
+
+setTimeout(()=>{
+
+
+inside.classList.remove("hide");
+
+inside.classList.add("show");
+
+
+credit.classList.add("show-credit");
+
+
+},1400);
+
+
+
+let music=document.getElementById("music");
+
+music.volume=.25;
+
+music.play();
+
+
+}
+
+
+
+
+function muteMusic(){
+
+
+let music=document.getElementById("music");
+
+let button=document.getElementById("muteButton");
+
+
+music.muted=!music.muted;
+
+
+
+if(music.muted){
+
+button.innerHTML="Unmute music";
+
+}
+
+else{
+
+button.innerHTML="Mute music";
+
+}
+
+
+}
+
+
+
+
+
+function leaveRoom(){
+
+window.location.href="index.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

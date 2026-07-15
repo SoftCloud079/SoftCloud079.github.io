@@ -1,274 +1,1006 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SoftCloud</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SoftCloud Studios</title>
+
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #160b2e, #0b0616 60%);
-  color: #f3ecff;
-  overflow-x: hidden;
+
+*{
+box-sizing:border-box;
 }
 
-/* layout */
-.container {
-  max-width: 720px;
-  margin: auto;
-  padding: 100px 20px;
-  animation: fadeIn 1.2s ease-out;
+
+body{
+
+margin:0;
+
+font-family:Arial, sans-serif;
+
+background:
+radial-gradient(circle at top,#160b2e,#0b0616 70%);
+
+color:#f3ecff;
+
+overflow-x:hidden;
+
 }
 
-/* ===== INTRO (FIXED STRUCTURE) ===== */
-.intro {
-  text-align: center;
-  margin-bottom: 60px;
-  animation: fadeIn 1.4s ease-out;
+
+
+/* Soft purple atmosphere */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+
+height:350px;
+
+top:-200px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:rgba(155,89,182,.18);
+
+filter:blur(120px);
+
+z-index:-1;
+
 }
 
-/* revert to simple clean title */
-.intro-title {
-  font-size: 58px;
-  margin: 0;
-  letter-spacing: 5px;
-  text-shadow: 0 0 25px rgba(155, 89, 182, 0.25);
+
+
+
+
+/* Logo */
+
+
+.logo{
+
+position:absolute;
+
+top:35px;
+
+left:35px;
+
+width:90px;
+
+height:90px;
+
+object-fit:contain;
+
+animation:logoGlow 4s infinite ease-in-out;
+
 }
 
-/* subtitle under title */
-.intro-sub {
-  text-align: center;
-  opacity: 0.55;
-  margin-top: 14px;
-  letter-spacing: 1px;
-  font-size: 14px;
+
+
+@keyframes logoGlow{
+
+0%,100%{
+
+filter:
+drop-shadow(0 0 10px rgba(155,89,182,.4));
+
 }
 
-/* soft divider under intro (entry feel) */
-.intro-line {
-  width: 120px;
-  height: 1px;
-  margin: 18px auto 0 auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(155, 89, 182, 0.6),
-    transparent
-  );
-  opacity: 0.6;
+
+50%{
+
+filter:
+drop-shadow(0 0 35px rgba(155,89,182,.8));
+
 }
 
-/* sections */
-.section {
-  margin-top: 70px;
-  animation: fadeInUp 1s ease-out;
 }
 
-/* headings */
-h2 {
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: 0.6;
-  margin-bottom: 18px;
+
+
+
+
+
+
+/* Main layout */
+
+
+.container{
+
+max-width:1000px;
+
+margin:auto;
+
+padding:140px 35px;
+
 }
 
-/* cards */
-.card {
-  background: rgba(160, 120, 255, 0.06);
-  border: 1px solid rgba(180, 140, 255, 0.12);
-  padding: 24px;
-  border-radius: 16px;
-  backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+
+
+
+
+
+/* Welcome */
+
+
+.hero{
+
+text-align:center;
+
+margin-bottom:120px;
+
+animation:fade 1.2s ease;
+
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(155, 89, 182, 0.08);
+
+
+.hero h3{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+opacity:.5;
+
+margin-bottom:25px;
+
 }
 
-/* text */
-p {
-  margin: 0;
-  line-height: 1.8;
-  opacity: 0.85;
+
+
+.hero h1{
+
+font-size:75px;
+
+letter-spacing:8px;
+
+margin:0;
+
+text-shadow:
+
+0 0 35px rgba(155,89,182,.35);
+
 }
 
-/* project items */
-.item {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: padding-left 0.2s ease;
+
+
+.hero p{
+
+max-width:600px;
+
+margin:30px auto;
+
+line-height:1.8;
+
+opacity:.7;
+
 }
 
-.item:hover {
-  padding-left: 6px;
+
+
+
+
+
+
+
+/* Sections */
+
+
+.section{
+
+margin-bottom:90px;
+
+animation:fade 1s ease;
+
 }
 
-.item:last-child {
-  border-bottom: none;
+
+
+h2{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+opacity:.6;
+
+margin-bottom:20px;
+
 }
 
-/* status */
-.status {
-  font-size: 10px;
-  letter-spacing: 2px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(155, 89, 182, 0.18);
-  border: 1px solid rgba(155, 89, 182, 0.3);
-  color: #d8b4ff;
+
+
+
+
+
+
+/* Cards */
+
+
+.card{
+
+background:
+
+rgba(160,120,255,.06);
+
+
+border:
+
+1px solid rgba(180,140,255,.15);
+
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+backdrop-filter:blur(8px);
+
+
+transition:.25s;
+
 }
 
-/* contact */
-.contact {
-  text-align: center;
-  line-height: 2;
-  opacity: 0.85;
+
+
+.card:hover{
+
+transform:translateY(-4px);
+
+
+box-shadow:
+
+0 15px 40px rgba(155,89,182,.12);
+
 }
 
-/* footer */
-.footer {
-  text-align: center;
-  margin-top: 90px;
-  font-size: 11px;
-  opacity: 0.35;
+
+
+p{
+
+line-height:1.8;
+
+opacity:.85;
+
 }
 
-/* cursor glow */
-.cursor-glow {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: rgba(155, 89, 182, 0.25);
-  box-shadow: 0 0 40px rgba(155, 89, 182, 0.25);
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  opacity: 0.7;
+
+
+
+
+
+/* Project cards */
+
+
+.project{
+
+padding:20px 0;
+
+border-bottom:
+
+1px solid rgba(255,255,255,.08);
+
 }
 
-/* animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+
+
+.project:last-child{
+
+border:none;
+
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+
+
+.project-name{
+
+font-size:20px;
+
 }
+
+
+
+.project-info{
+
+margin-top:8px;
+
+opacity:.65;
+
+}
+
+
+
+.status{
+
+display:inline-block;
+
+margin-top:12px;
+
+padding:5px 14px;
+
+border-radius:20px;
+
+font-size:10px;
+
+letter-spacing:2px;
+
+
+background:
+
+rgba(155,89,182,.18);
+
+}
+
+
+
+
+
+
+
+
+/* Discord button */
+
+
+.button{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:12px 30px;
+
+
+border-radius:30px;
+
+
+text-decoration:none;
+
+
+color:white;
+
+
+background:
+
+rgba(155,89,182,.25);
+
+
+border:
+
+1px solid rgba(155,89,182,.4);
+
+
+transition:.3s;
+
+}
+
+
+
+.button:hover{
+
+transform:translateY(-4px);
+
+
+box-shadow:
+
+0 10px 30px rgba(155,89,182,.25);
+
+}
+
+
+
+
+
+
+/* Deer Easter egg */
+
+
+.deer-easter{
+
+text-align:center;
+
+margin-top:80px;
+
+cursor:pointer;
+
+opacity:.75;
+
+transition:.3s;
+
+}
+
+
+.deer-easter img{
+
+width:70px;
+
+height:auto;
+
+filter:
+
+drop-shadow(0 0 15px rgba(155,89,182,.5));
+
+
+transition:.3s;
+
+}
+
+
+
+.deer-easter:hover img{
+
+transform:translateY(-8px) scale(1.1);
+
+}
+
+
+
+.deer-easter span{
+
+display:block;
+
+margin-top:10px;
+
+font-size:10px;
+
+letter-spacing:3px;
+
+opacity:.5;
+
+}
+
+
+
+#deer-message{
+
+text-align:center;
+
+opacity:0;
+
+max-height:0;
+
+overflow:hidden;
+
+transition:.5s;
+
+}
+
+
+
+#deer-message.show{
+
+opacity:.8;
+
+max-height:200px;
+
+margin-top:20px;
+
+}
+
+
+
+
+
+
+.footer{
+
+text-align:center;
+
+margin-top:100px;
+
+opacity:.35;
+
+font-size:12px;
+
+}
+
+
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+
+@media(max-width:700px){
+
+
+.logo{
+
+width:65px;
+
+height:65px;
+
+top:20px;
+
+left:20px;
+
+}
+
+
+
+.container{
+
+padding:110px 20px;
+
+}
+
+
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+
+.card{
+
+padding:25px;
+
+}
+
+
+}
+
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="cursor-glow"></div>
+
+<img src="logo.png" class="logo">
+
 
 <div class="container">
 
-  <!-- INTRO (NEW STRUCTURE YOU WANTED) -->
-  <div class="intro">
-    <div class="intro-title">SoftCloud</div>
 
-    <div class="intro-sub">
-      a place I can step into when I need to breathe or take a break from life
-    </div>
+<div class="hero">
 
-    <div class="intro-line"></div>
-  </div>
+<h3>WELCOME TO</h3>
 
-  <!-- About -->
-  <div class="section">
-    <h2>About</h2>
-    <div class="card">
-      <p>Hi, I’m H4RÅN. Welcome to SoftCloud.</p>
+<h1>SoftCloud</h1>
 
-      <p>
-        SoftCloud is not a brand or a studio. It’s a space I use to step away from everything else and create without pressure or expectation.
-      </p>
-    </div>
-  </div>
-
-  <!-- Projects -->
-  <div class="section">
-    <h2>Projects</h2>
-    <div class="card">
-
-      <div class="item">
-        The Deer Project
-        <span class="status">WIP</span>
-      </div>
-
-      <div class="item">
-        Deck of Playing Cards — inspired by James Turrell
-        <span class="status">DONE</span>
-      </div>
-
-      <div class="item">
-        Bobot Eco Adventure
-        <span class="status">DONE</span>
-      </div>
-
-      <div class="item">
-        Happy Juices — Orange Juice Box Artwork
-        <span class="status">DONE</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Ideas -->
-  <div class="section">
-    <h2>Ideas</h2>
-    <div class="card">
-      <p>Small thoughts, unfinished ideas, and things I’m still figuring out.</p>
-      <p>This is where things exist before they become anything else.</p>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div class="section">
-    <h2>Contact</h2>
-    <div class="card contact">
-      <p>Discord: its_h4ran</p>
-      <p>Email: softcloud079@gmail.com</p>
-    </div>
-  </div>
-
-  <div class="footer">
-    SoftCloud • H4RÅN
-  </div>
+<p>
+A place I can step into when I need to breathe,
+take a break from everything else,
+and create without pressure.
+</p>
 
 </div>
 
+
+
+
+
+<div class="section">
+
+<h2>What is SoftCloud?</h2>
+
+<div class="card">
+
+<p>
+SoftCloud started as my own personal space.
+</p>
+
+<p>
+It was somewhere I could escape the pressure of everyday life,
+experiment with ideas, and create things simply because I enjoyed making them.
+</p>
+
+<p>
+There were no expectations, no deadlines,
+just creativity and me.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+
+<h2>The Beginning</h2>
+
+<div class="card">
+
+<p>
+SoftCloud was never created to be a business.
+</p>
+
+<p>
+It was created as a place where I could leave the world behind
+for a while and enter my own space.
+</p>
+
+<p>
+A place where I could learn, fail, improve,
+and keep creating.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+
+<h2>Projects</h2>
+
+<div class="card">
+
+
+
+<div class="project">
+
+<div class="project-name">
+SoftCloud
+</div>
+
+<div class="project-info">
+The home for all projects, ideas, and creations.
+</div>
+
+<span class="status">
+ACTIVE
+</span>
+
+</div>
+
+
+
+
+
+<div class="project">
+
+<div class="project-name">
+The Deer Project
+</div>
+
+<div class="project-info">
+A series about a curious deer and its adventures.
+</div>
+
+<span class="status">
+CREATIVE PHASE
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="project">
+
+<div class="project-name">
+Iris
+</div>
+
+<div class="project-info">
+The first SoftCloud helper bot.
+</div>
+
+<span class="status">
+COMPLETE - OFFLINE
+</span>
+
+</div>
+
+
+
+
+
+
+
+<div class="project">
+
+<div class="project-name">
+Rocky
+</div>
+
+<div class="project-info">
+A Discord bot inspired by Rocky from Project Hail Mary.
+</div>
+
+<span class="status">
+COMPLETE - OFFLINE
+</span>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="project">
+
+<div class="project-name">
+MRYOLO_But.hes.in.pain
+</div>
+
+<div class="project-info">
+A Discord bot currently being developed.
+</div>
+
+<span class="status">
+IN DEVELOPMENT
+</span>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="project">
+
+<div class="project-name">
+Cat Discord Game
+</div>
+
+<div class="project-info">
+A planned Discord game created with a friend.
+</div>
+
+<span class="status">
+PLANNING
+</span>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="section">
+
+<h2>Community</h2>
+
+
+<div class="card">
+
+
+<p>
+SoftCloud is a place where friends and creators
+can come together, share ideas, and create things
+they are proud of.
+</p>
+
+
+
+<p>
+Mistakes are part of creating.
+Every failed idea, broken project, and unexpected problem
+is another chance to learn, improve, and try again.
+</p>
+
+
+
+
+<p>
+The goal isn't to be perfect.
+
+The goal is to keep creating, keep learning,
+and enjoy the journey.
+</p>
+
+
+
+<a class="button" href="https://discord.gg/e9kDuwheCD">
+
+Join Discord
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+
+<h2>Contact</h2>
+
+
+<div class="card">
+
+
+<p>
+Discord: its_h4ran
+</p>
+
+
+<p>
+Email: softcloud079@gmail.com
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="deer-easter" onclick="showDeer()">
+
+
+<img src="deer.png" alt="SoftCloud Deer">
+
+
+<span>
+click me
+</span>
+
+
+</div>
+
+
+
+
+
+<div id="deer-message">
+
+
+You found a deer! 
+
+
+<br><br>
+
+
+Deer are cute and awesome.
+
+
+<br><br>
+
+
+A small reminder that every idea starts somewhere.
+
+
+<br><br>
+
+
+Keep exploring, keep creating,
+and enjoy the journey.
+
+
+<br><br>
+
+
+And remember to take breaks!!
+
+
+</div>
+
+
+
+
+
+
+<div class="footer">
+
+SoftCloud Studios™ • H4RAN
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
 <script>
-const glow = document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
 
-document.addEventListener("mousedown", () => {
-  glow.style.width = "30px";
-  glow.style.height = "30px";
-  glow.style.opacity = "0.9";
-});
+function showDeer(){
 
-document.addEventListener("mouseup", () => {
-  glow.style.width = "20px";
-  glow.style.height = "20px";
-  glow.style.opacity = "0.7";
-});
+
+document
+
+.getElementById("deer-message")
+
+.classList
+
+.add("show");
+
+
+}
+
+
+
 </script>
 
+
+
+
+
 </body>
+
+
 </html>

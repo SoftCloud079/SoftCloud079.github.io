@@ -10,6 +10,10 @@
 
 <link rel="icon" href="favicon.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,7 +21,51 @@
 box-sizing:border-box;
 }
 
+.fade-out .room,
+.fade-out .logo,
+.fade-out .cloud,
+.fade-out .star,
+.fade-out .music-credit{
 
+opacity:0 !important;
+
+transition:opacity 3s ease;
+
+pointer-events:none;
+
+}
+
+
+.exit-message{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+font-size:20px;
+
+letter-spacing:2px;
+
+opacity:0;
+
+transition:3s ease;
+
+z-index:20;
+
+}
+
+
+.exit-message.show{
+
+opacity:.8;
+
+}
 body{
 
 margin:0;
@@ -26,8 +74,7 @@ height:100vh;
 
 overflow:hidden;
 
-font-family:Arial,sans-serif;
-
+font-family:'Nunito',sans-serif;
 background:
 radial-gradient(circle at top,#160b2e,#0b0616 70%);
 
@@ -96,7 +143,7 @@ z-index:1;
 
 .logo{
 
-transition:opacity 1.5s ease;
+transition:opacity 3s ease;
   
 position:fixed;
 
@@ -773,7 +820,41 @@ button.innerHTML="Mute music";
 
 function leaveRoom(){
 
+let message=document.getElementById("exitMessage");
+
+let music=document.getElementById("music");
+
+
+message.classList.add("show");
+
+
+document.body.classList.add("fade-out");
+
+
+let fadeMusic=setInterval(()=>{
+
+if(music.volume > 0.02){
+
+music.volume-=0.02;
+
+}else{
+
+clearInterval(fadeMusic);
+
+music.pause();
+
+}
+
+},100);
+
+
+
+setTimeout(()=>{
+
 window.location.href="index.html";
+
+},6000);
+
 
 }
 
@@ -855,7 +936,19 @@ button.innerHTML="Enter Fullscreen";
 </script>
 
 
-
 </body>
+
+<body>
+
+<div id="exitMessage" class="exit-message">
+
+Thank you for visiting the Cloud Room
+<img src="favicon.png" class="mini-cloud">
+<br><br>
+
+Take care,<br>
+and come back anytime.
+
+</div>
 
 </html>

@@ -75,6 +75,8 @@ z-index:0;
 
 .logo{
 
+transition:opacity 1.5s ease;
+  
 position:fixed;
 
 top:35px;
@@ -261,6 +263,8 @@ transform:translateX(350px);
 
 .room{
 
+transition:opacity 1.5s ease;
+  
 position:relative;
 
 z-index:2;
@@ -454,7 +458,7 @@ opacity:.35;
 <body>
 
 
-<img src="favicon.png" class="logo">
+<img src="favicon.png" class="logo" id="logo">
 
 
 
@@ -542,17 +546,21 @@ Mute music
 
 </div>
 
-
 <br>
 
+<div id="fullscreenButton" class="button" onclick="toggleFullscreen()">
+
+Enter Fullscreen
+
+</div>
+
+<br>
 
 <div class="button" onclick="leaveRoom()">
 
 Return to SoftCloud
 
 </div>
-
-
 
 </div>
 
@@ -624,7 +632,9 @@ music.volume=.25;
 
 music.play();
 
+roomEntered = true;
 
+resetIdle();
 }
 
 
@@ -668,7 +678,81 @@ window.location.href="index.html";
 
 }
 
+const logo=document.getElementById("logo");
+const room=document.querySelector(".room");
 
+let idleTimer;
+
+let roomEntered = false;
+
+["mousemove","mousedown","keypress","touchstart","scroll"].forEach(event=>{
+
+    document.addEventListener(event, () => {
+
+        if(roomEntered){
+
+            resetIdle();
+
+        }
+
+    });
+
+});
+
+function resetIdle(){
+
+    logo.style.opacity = "1";
+    room.style.opacity = "1";
+
+    document.body.style.cursor = "default";
+
+    clearTimeout(idleTimer);
+
+    idleTimer = setTimeout(() => {
+
+        logo.style.opacity = "0";
+        room.style.opacity = "0";
+
+        document.body.style.cursor = "none";
+
+    }, 4000); // Testing
+}
+  
+async function toggleFullscreen(){
+
+const button=document.getElementById("fullscreenButton");
+
+if(!document.fullscreenElement){
+
+await document.documentElement.requestFullscreen();
+
+button.innerHTML="Exit Fullscreen";
+
+}else{
+
+await document.exitFullscreen();
+
+button.innerHTML="Enter Fullscreen";
+
+}
+
+}
+
+document.addEventListener("fullscreenchange",()=>{
+
+const button=document.getElementById("fullscreenButton");
+
+if(document.fullscreenElement){
+
+button.innerHTML="Exit Fullscreen";
+
+}else{
+
+button.innerHTML="Enter Fullscreen";
+
+}
+
+});
 </script>
 
 

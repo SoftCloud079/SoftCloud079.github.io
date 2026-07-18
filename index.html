@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SoftCloud Studios</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/popups.css">
+
+</head>
+
+
+<body>
+
+
+<img src="assets/logo.png" class="logo" id="cloudButton">
+
+
+<div class="container">
+
+
+<div class="hero">
+
+<h3>WELCOME TO</h3>
+
+<h1>SoftCloud</h1>
+
+<p>
+A place I can step into when I need to breathe,
+take a break from everything else,
+and create without pressure.
+</p>
+
+</div>
+
+
+
+
+
+<div class="section">
+
+<h2>What is SoftCloud?</h2>
+
+<div class="card">
+
+<p>
+SoftCloud started as my own personal space.
+</p>
+
+<p>
+It was somewhere I could escape the pressure of everyday life,
+experiment with ideas, and create things simply because I enjoyed making them.
+</p>
+
+<p>
+There were no expectations, no deadlines,
+just creativity and me.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+
+<h2>The Beginning</h2>
+
+<div class="card">
+
+<p>
+SoftCloud was never created to be a business.
+</p>
+
+<p>
+It was created as a place where I could leave the world behind
+for a while and enter my own space.
+</p>
+
+<p>
+A place where I could learn, fail, improve,
+and keep creating.
+</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+    <h2>Projects</h2>
+    
+    <div class="card">
+    
+    
+    <div class="project" onclick="openProject('SoftCloud')">
+    
+    <div class="project-name">
+    SoftCloud
+    </div>
+    
+    <div class="project-info">
+    The home for all SoftCloud projects, ideas, and creations.
+    </div>
+    
+    <span class="status">
+    ACTIVE
+    </span>
+    
+    </div>
+    
+    
+    
+    
+    
+    <div class="project" onclick="openProject('The Deer Project')">
+    
+    <div class="project-name">
+    The Deer Project
+    </div>
+    
+    <div class="project-info">
+    A series about a curious deer and its adventures.
+    </div>
+    
+    <span class="status">
+    STARTING PHASE
+    </span>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    <div class="project" onclick="openProject('Iris')">
+    
+    <div class="project-name">
+    Iris
+    </div>
+    
+    <div class="project-info">
+    The first SoftCloud helper bot.
+    </div>
+    
+    <span class="status">
+    COMPLETE - RESTING
+    </span>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="project" onclick="openProject('Rocky')">
+    
+    <div class="project-name">
+    Rocky
+    </div>
+    
+    <div class="project-info">
+    A Discord bot inspired by Rocky from Project Hail Mary.
+    </div>
+    
+    <span class="status">
+    COMPLETE - RESTING
+    </span>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="project" onclick="openProject('MRYOLO_But.hes.in.pain')">
+    
+    <div class="project-name">
+    MRYOLO_But.hes.in.pain
+    </div>
+    
+    <div class="project-info">
+    A Discord bot created just for fun.
+    </div>
+    
+    <span class="status">
+    IN DEVELOPMENT
+    </span>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="project" onclick="openProject('Cat Discord Game')">
+    
+    <div class="project-name">
+    Cat Discord Game
+    </div>
+    
+    <div class="project-info">
+    A planned Discord game created with a friend.
+    </div>
+    
+    <span class="status">
+    REVIVED - PLANNING
+    </span>
+    
+    </div>
+    
+    
+    
+    </div>
+    
+    </div>
+    
+<div class="section">
+
+<h2>Community</h2>
+
+
+<div class="card">
+
+
+<p>
+SoftCloud is a place where friends and creators
+can come together, share ideas, and create things
+they are proud of.
+</p>
+
+
+
+<p>
+Mistakes are part of creating.
+Every failed idea, broken project, and unexpected problem
+is another chance to learn, improve, and try again.
+</p>
+
+
+
+
+<p>
+The goal isn't to be perfect.
+
+The goal is to keep creating, keep learning,
+and enjoy the journey.
+</p>
+
+
+
+<a class="button" href="https://discord.gg/e9kDuwheCD">
+
+Join Discord
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="section">
+
+<h2>Contact</h2>
+
+
+<div class="card">
+
+
+<p>
+Discord: its_h4ran
+</p>
+
+
+<p>
+Email: softcloud079@gmail.com
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="deer-easter" onclick="showDeer()">
+
+
+<img src="assets/DEER.png" alt="SoftCloud Deer">
+
+
+<span>
+click me
+</span>
+
+
+</div>
+
+
+
+
+
+<div id="deer-message">
+
+
+You found a deer!
+
+
+<br><br>
+
+
+Deer are cute and awesome.
+
+
+<br><br>
+
+
+A small reminder that every idea starts somewhere.
+
+
+<br><br>
+
+
+Keep exploring, keep creating,
+and enjoy the journey.
+
+
+<br><br>
+
+
+And remember to take breaks!!
+
+
+</div>
+
+
+
+
+
+
+<div class="footer">
+
+SoftCloud Studios™ • H4RAN
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="popupBackground" class="popup-background" onclick="closeProject()"></div>
+
+
+<div id="projectPopup" class="project-popup">
+
+
+<div class="close-popup" onclick="closeProject()">
+×
+</div>
+
+
+<h2 id="popupTitle">
+Project
+</h2>
+
+
+<div id="popupDescription">
+    Description
+    </div>
+
+
+<div id="popupStatus" class="popup-status">
+STATUS
+</div>
+
+
+</div>
+
+<script src="js/popup.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

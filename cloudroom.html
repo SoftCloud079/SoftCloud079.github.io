@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cloud Room</title>
+
+<link rel="icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/cloudroom.css">
+
+</head>
+
+
+<body>
+
+
+<img src="assets/favicon.png" class="logo" id="logo">
+
+
+
+<div class="star" style="top:6%;left:10%;animation-delay:0s;"></div>
+<div class="star" style="top:12%;left:30%;animation-delay:1s;"></div>
+<div class="star" style="top:8%;left:65%;animation-delay:2s;"></div>
+<div class="star" style="top:18%;left:88%;animation-delay:3s;"></div>
+
+<div class="star" style="top:25%;left:18%;animation-delay:4s;"></div>
+<div class="star" style="top:28%;left:48%;animation-delay:1.5s;"></div>
+<div class="star" style="top:22%;left:75%;animation-delay:2.8s;"></div>
+
+<div class="star" style="top:38%;left:8%;animation-delay:5s;"></div>
+<div class="star" style="top:42%;left:35%;animation-delay:1.2s;"></div>
+<div class="star" style="top:35%;left:60%;animation-delay:4.3s;"></div>
+<div class="star" style="top:48%;left:82%;animation-delay:2.2s;"></div>
+
+<div class="star" style="top:55%;left:20%;animation-delay:6s;"></div>
+<div class="star" style="top:60%;left:50%;animation-delay:3.7s;"></div>
+<div class="star" style="top:65%;left:72%;animation-delay:2.6s;"></div>
+
+<div class="star" style="top:72%;left:10%;animation-delay:4.5s;"></div>
+<div class="star" style="top:78%;left:40%;animation-delay:1.8s;"></div>
+<div class="star" style="top:82%;left:58%;animation-delay:5.5s;"></div>
+<div class="star" style="top:88%;left:84%;animation-delay:3.3s;"></div>
+
+<div class="star" style="top:92%;left:25%;animation-delay:6.8s;"></div>
+<div class="star" style="top:95%;left:68%;animation-delay:2.4s;"></div>
+
+
+
+<div class="cloud one"></div>
+<div class="cloud two"></div>
+<div class="cloud three"></div>
+<div class="cloud four"></div>
+<div class="cloud five"></div>
+
+
+
+
+<div class="room">
+
+
+<div id="welcome" class="screen show">
+
+
+<h1>
+Cloud Room
+</h1>
+
+
+<p>
+The world can be a little hard sometimes.
+</p>
+
+
+<p>
+A quiet place above the noise.<br>
+Take a moment to relax and breathe.
+</p>
+
+
+
+<div class="button" onclick="enterRoom()">
+
+Let me in
+
+</div>
+
+
+
+<div class="small">
+
+Music will play<br>
+You can mute it anytime
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div id="inside" class="screen hide">
+
+
+<h1>
+Welcome
+</h1>
+
+
+<p>
+Welcome to the Cloud Room.<br>
+Relax and stay for as long as you need.
+</p>
+
+
+
+<div id="muteButton" class="button" onclick="muteMusic()">
+
+Mute music
+
+</div>
+
+<br>
+
+
+<div id="fullscreenButton" class="button" onclick="toggleFullscreen()">
+
+Enter Fullscreen
+
+</div>
+
+<br>
+
+
+<div class="button" onclick="leaveRoom()">
+
+Return to SoftCloud
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="musicCredit" class="music-credit">
+
+Cloud Room soundtrack<br>
+"Night Light" — Purrple Cat
+
+</div>
+
+
+
+
+
+<audio id="music" loop>
+
+<source src="assets/nightlight.mp3" type="audio/mp3">
+
+</audio>
+
+
+
+
+
+<div id="exitMessage" class="exit-message">
+
+Thank you for visiting the Cloud Room
+
+<img src="assets/favicon.png" class="mini-cloud">
+
+<br><br>
+
+Take care,<br>
+and come back anytime.
+
+</div>
+
+
+
+
+
+<script src="js/cloudroom.js"></script>
+
+
+</body>
+
+</html>
